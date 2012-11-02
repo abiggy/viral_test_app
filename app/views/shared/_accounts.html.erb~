@@ -1,5 +1,5 @@
-<% if @twitter_accounts.any? %>
-  <li>
+<%= if @twitter_accounts.any? %>
+
     <%= render partial: 'shared/account_item', collection: @twitter_accounts %>
-  </li>
+
 <% end %>

@@ -1,0 +1,3 @@
+<% if @followers.any? %>
+    <%= render partial: 'shared/followers_item', collection: @followers %>
+<% end %>

@@ -15,6 +15,18 @@
       </section>
 
     </aside>
+
+    <div class="span8">
+      <% if @selected_account != nil%>
+        <h3><%=@selected_account.name%> Twitter Followers</h3>
+
+        <%= render 'shared/follower_form' %>
+
+        <%= render 'shared/followers' %>
+      <% else %>
+        <h3> Select one of your twitter accounts</h3>
+      <% end %>
+    </div>
   </div>
 
 

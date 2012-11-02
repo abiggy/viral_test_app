@@ -1,0 +1,6 @@
+<li>
+  <span class="content"><%= follower_item.name %></span>
+
+
+
+</li>

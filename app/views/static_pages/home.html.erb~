@@ -6,6 +6,7 @@
       </section>
       <section>
         <h3>Twitter Accounts</h3>
+        <%= render 'shared/accounts' %>
 
       </section>
       <section>
@@ -14,6 +15,14 @@
       </section>
 
     </aside>
+
+    <div class="span8">
+      <h3><%=@selected_account.name%> Twitter Followers</h3>
+
+      <%= render 'shared/follower_form' %>
+
+      <%= render 'shared/followers' %>
+    </div>
   </div>
 
 
