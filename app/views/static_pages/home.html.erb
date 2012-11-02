@@ -1,12 +1,36 @@
-<div class="center hero-unit">
-  <h1>Welcome to the Test App</h1>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <h3>Twitter Accounts</h3>
+        <%= render 'shared/accounts' %>
 
-  <h2>
-	This is an app used to help business utilize twitter.
-	<p>Check out
-    <a href="http://www.myviralweb.com/"">My Viral Web</a>
-    for similar applications.
-  </h2>
+      </section>
+      <section>
+        <h3>Add Twitter Account</h3>
+        <%= render 'shared/twitter_account_form' %>
+      </section>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    </aside>
+  </div>
+
+
+
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Test App</h1>
+
+    <h2>
+      This is an app used to help businesses utilize twitter.
+      <p>Check out
+      <a href="http://www.myviralweb.com/"">My Viral Web</a>
+      for similar applications.
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %> 

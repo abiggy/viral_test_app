@@ -1,4 +1,17 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= @user.name %>
-</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+
+	<% if @user.twitter_accounts.any? %>
+      <h3>Twitter Accounts (<%= @user.twitter_accounts.count %>)</h3>
+      <li class="twitter_accounts">
+        <%= render @twitter_accounts %>
+      </li>
+    <% end %>
+  </aside>
+</div>

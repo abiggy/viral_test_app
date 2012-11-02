@@ -1,0 +1,7 @@
+<li>
+  <span class="content"><%= twitter_account.name %></span>
+  <% if current_user?(twitter_account.user) %>
+    <%= link_to "delete", twitter_account, method: :delete,
+                                     data: { confirm: "You sure?" }%>
+  <% end %>
+</li>

@@ -1,0 +1,8 @@
+
+<h1>
+  <%= current_user.name %>
+</h1>
+
+<span>
+  <%= pluralize(current_user.twitter_accounts.count, "twitter account") %>
+</span>
