@@ -17,11 +17,16 @@
     </aside>
 
     <div class="span8">
-      <h3><%=@selected_account.name%> Twitter Followers</h3>
+      <h2> This is a test: <%= @test%>!<h2>
+      <% if @selected_account != nil%>
+        <h3><%=@selected_account.name%> Twitter Followers</h3>
 
-      <%= render 'shared/follower_form' %>
+        <%= render 'shared/follower_form' %>
 
-      <%= render 'shared/followers' %>
+        <%= render 'shared/followers' %>
+      <% else %>
+        <h3> Select one of your twitter accounts</h3>
+      <% end %>
     </div>
   </div>
 

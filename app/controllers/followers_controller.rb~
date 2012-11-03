@@ -1,0 +1,30 @@
+class FollowersController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :correct_user,   only: :destroy
+  
+  def create
+    @follower = current_user.twitter_accounts.find_by_id(session[:account_id]).followers.build(params[:follower])
+    if @follower.save
+      flash[:success] = "Twitter follower added!@"
+      
+      redirect_to (root_url(:id => session[:account_id]))      
+      #redirect_to root_url, :id => session[:account_id]
+      
+    else
+      
+      render 'static_pages/home'
+    end
+  end
+
+  def destroy
+    @follower.destroy
+    redirect_to root_url
+  end
+
+  private
+
+    def correct_user
+      @follower = current_user.twitter_accounts.find_by_id(session[:account_id]).followers.find_by_id(params[:id])
+      redirect_to root_url if @follower.nil?
+    end
+end

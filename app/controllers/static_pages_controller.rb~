@@ -4,12 +4,20 @@ class StaticPagesController < ApplicationController
       @new_twitter_account = current_user.twitter_accounts.build
       @twitter_accounts = current_user.twitter_accounts
 
+      if params[:id] != nil
 
-      @selected_account = @twitter_accounts.find(params[:id])
-      @followers = @selected_account.followers
-      @new_follower = @followers.build
-
-      @test = params[:id]
+        @selected_account = @twitter_accounts.find(params[:id])
+        @followers = @selected_account.followers
+        @new_follower = @followers.build
+        # going to store the current account's list of followers
+        session[:account_id] = @selected_account.id
+        
+        @test = params[:id]
+      else
+        @selected_account = nil
+        @followers = nil
+        @new_follower = nil
+      end
 
       #@selected_account = nil
       #@followers = nil

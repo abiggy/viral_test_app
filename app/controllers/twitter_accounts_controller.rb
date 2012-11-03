@@ -1,8 +1,10 @@
 class TwitterAccountsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: :destroy
-
+  
+  # Don't think need to have index.
   def index
+    
     @twitter_account = current_user.twitter_accounts.build(params[:twitter_account])
     if @twitter_account.save
       flash[:success] = "Twitter account added!"
